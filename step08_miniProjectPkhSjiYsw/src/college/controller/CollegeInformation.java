@@ -1,3 +1,5 @@
+//ìˆ˜ì •í•  ê²ƒ
+
 package college.controller;
 
 import java.sql.SQLException;
@@ -13,72 +15,72 @@ import college.view.EndView;
 
 public class CollegeInformation {
 	
-	//´Ü°ú´ëÇĞ µ¥ÀÌÅÍ °Ë»ö
+	//ë‹¨ê³¼ëŒ€í•™ ë°ì´í„° ê²€ìƒ‰
 	/*
-	 °Ë»ö ¿É¼Ç ¾øÀÌ ÀüÃ¼ µ¥ÀÌÅÍ °Ë»öÇÏ·Á¸é opt = "all", coll_nameÀº ¾Æ¹« ¹®ÀÚ³ª Çã¿ë
-	Æ¯Á¤ ´Ü°ú´ëÇĞ¸íÀÇ µ¥ÀÌÅÍ¸¸ °Ë»öÇÏ·Á¸é opt = "by coll_name", coll_nameÀº °Ë»öÇÒ ´Ü°ú´ëÇĞ¸í
+	 ê²€ìƒ‰ ì˜µì…˜ ì—†ì´ ì „ì²´ ë°ì´í„° ê²€ìƒ‰í•˜ë ¤ë©´ opt = "all", coll_nameì€ ì•„ë¬´ ë¬¸ìë‚˜ í—ˆìš©
+	íŠ¹ì • ë‹¨ê³¼ëŒ€í•™ëª…ì˜ ë°ì´í„°ë§Œ ê²€ìƒ‰í•˜ë ¤ë©´ opt = "by coll_name", coll_nameì€ ê²€ìƒ‰í•  ë‹¨ê³¼ëŒ€í•™ëª…
 	 */
 	public static ArrayList<CollegeDTO> getCollege(String opt, String coll_name) {
 		ArrayList<CollegeDTO> allList = null;
 		try {
 			allList = CollegeDAO.getCollege(opt, coll_name);
 		} catch (Exception e) {
-			EndView.ShowError("Á¶È¸¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			EndView.ShowError("ì¡°íšŒì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 		return allList;
 	}
 	
-	//´Ü°ú´ëÇĞ µ¥ÀÌÅÍ ¼öÁ¤
-	//ÇĞ°ú¸í ÀÌ¿ëÇÏ¿© ÇØ´ç ÇĞ°úÀÇ Á¹¾÷ ¿ä°Ç ¼öÁ¤
+	//ë‹¨ê³¼ëŒ€í•™ ë°ì´í„° ìˆ˜ì •
+	//í•™ê³¼ëª… ì´ìš©í•˜ì—¬ í•´ë‹¹ í•™ê³¼ì˜ ì¡¸ì—… ìš”ê±´ ìˆ˜ì •
 	public static void updateCollege(String coll_name, String qual) {
 		try {
 			CollegeDAO.updateCollege(coll_name, qual);
 		} catch (SQLException e) {
-			EndView.ShowError("¼öÁ¤¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			EndView.ShowError("ìˆ˜ì •ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 	}
 	
-	//ÀüÃ¼ ÇĞ°úÀÇ ÀçÇĞ ÀÎ¿ø µ¥ÀÌÅÍ °Ë»ö
+	//ì „ì²´ í•™ê³¼ì˜ ì¬í•™ ì¸ì› ë°ì´í„° ê²€ìƒ‰
 	public static ArrayList<DepartmentDTO> getAllDepartment() {
 		ArrayList<DepartmentDTO> list = null;
 		try {
 			list = DepartmentDAO.getAllDepartment();
 		} catch (Exception e) {
-			EndView.ShowError("Á¶È¸¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			EndView.ShowError("ì¡°íšŒì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 		return list;
 	}
 	
-	//ÀüÃ¼ ±³¼ö µ¥ÀÌÅÍ Ãâ·ÂÇÏ±â
+	//ì „ì²´ êµìˆ˜ ë°ì´í„° ì¶œë ¥í•˜ê¸°
 	/*
-	 °Ë»ö ¿É¼Ç ¾øÀÌ ÀüÃ¼ µ¥ÀÌÅÍ °Ë»öÇÏ·Á¸é opt = "all", prof_nameÀº ¾Æ¹« ¹®ÀÚ³ª Çã¿ë
-	Æ¯Á¤ ´Ü°ú´ëÇĞ¸íÀÇ µ¥ÀÌÅÍ¸¸ °Ë»öÇÏ·Á¸é opt = "by prof_name", prof_nameÀº °Ë»öÇÒ ´Ü°ú´ëÇĞ¸í
+	 ê²€ìƒ‰ ì˜µì…˜ ì—†ì´ ì „ì²´ ë°ì´í„° ê²€ìƒ‰í•˜ë ¤ë©´ opt = "all", prof_nameì€ ì•„ë¬´ ë¬¸ìë‚˜ í—ˆìš©
+	íŠ¹ì • ë‹¨ê³¼ëŒ€í•™ëª…ì˜ ë°ì´í„°ë§Œ ê²€ìƒ‰í•˜ë ¤ë©´ opt = "by prof_name", prof_nameì€ ê²€ìƒ‰í•  ë‹¨ê³¼ëŒ€í•™ëª…
 	 */
 	public static ArrayList<ProfessorDTO> getProfessor(String opt, String prof_name) {
 		ArrayList<ProfessorDTO> list = null;
 		try {
 			list = ProfessorDAO.getProfessor(opt, prof_name);
 		} catch (Exception e) {
-			EndView.ShowError("Á¶È¸¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			EndView.ShowError("ì¡°íšŒì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 		return list;
 	}
 	
-	//»õ·Î¿î ±³¼ö Ãß°¡
+	//ìƒˆë¡œìš´ êµìˆ˜ ì¶”ê°€
 	public static void addProfessor(ProfessorDTO prof) {
 		try {
 			ProfessorDAO.addProfessor(prof);
 		} catch (Exception e) {
-			EndView.ShowError("Ãß°¡¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			EndView.ShowError("ì¶”ê°€ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 	}
 	
-	//±âÁ¸ ±³¼ö »èÁ¦ 
+	//ê¸°ì¡´ êµìˆ˜ ì‚­ì œ 
 	public static void deleteProfessor(String prof_Name) {
 		try {
 			ProfessorDAO.deleteProfessor(prof_Name);
 		} catch (SQLException e) {
-			EndView.ShowError("»èÁ¦¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			EndView.ShowError("ì‚­ì œì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 	}
 }
